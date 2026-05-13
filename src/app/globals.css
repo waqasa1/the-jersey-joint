@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-gold: #F5C400;
+  --color-gold-light: #FFD740;
+  --color-gold-dark: #C9A000;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-dark-primary: #111111;
+  --color-dark-secondary: #1A1A1A;
+  --color-dark-tertiary: #222222;
+  --color-dark-overlay: #0D0D0D;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --font-barlow: var(--font-barlow), sans-serif;
+  --font-sans: var(--font-dm-sans), sans-serif;
+
+  --animate-fade-up: fadeUp 0.6s ease forwards;
+  --animate-fade-in: fadeIn 0.4s ease forwards;
+
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(24px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
   }
 }
 
+:root {
+  /* Backgrounds */
+  --bg-primary: #111111;
+  --bg-secondary: #1A1A1A;
+  --bg-tertiary: #222222;
+  --bg-overlay: #0D0D0D;
+
+  /* Brand */
+  --gold: #F5C400;
+  --gold-light: #FFD740;
+  --gold-dark: #C9A000;
+
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: #CCCCCC;
+  --text-muted: #777777;
+
+  /* UI */
+  --border: #2A2A2A;
+  --border-gold: rgba(245, 196, 0, 0.3);
+  --success: #22C55E;
+  --error: #EF4444;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-barlow);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus rings */
+:focus-visible {
+  outline: 2px solid #F5C400;
+  outline-offset: 3px;
+}
+
+/* Skip to main content */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 1rem 2rem;
+  background: #F5C400;
+  color: #111111;
+  font-weight: 700;
+  z-index: 9999;
+  text-decoration: none;
+}
+.skip-link:focus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
 }

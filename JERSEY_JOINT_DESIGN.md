@@ -1104,3 +1104,124 @@ NEXT_PUBLIC_GA_ID=               # Google Analytics 4 measurement ID
 ---
 
 *End of document. Build exactly this. No additions. No omissions. No hallucinations.*
+
+
+Additional informational:
+
+# The Verdict: Black vs. White Background
+
+For The Jersey Joint, a Black background (#111111) is the superior choice.
+
+- **Aesthetic:** It aligns with the "pro-sports" and "premium streetwear" vibe seen in your gallery images.
+- **Contrast:** The gold crown icon and your primary brand color (#F5C400) pop significantly better against dark tones than white.
+- **Cinematic Feel:** It mirrors the high-end editorial photography style you prefer.
+
+---
+
+# 🛠️ Refined Design Document: The Jersey Joint
+
+## Agent Instruction
+
+Build exactly this. No hallucinations.
+
+Use the following specs to generate the Next.js application.
+
+---
+
+# 1. Project Essence
+
+## Business
+Custom basketball uniforms (AU market).
+
+## Model
+B2B/B2C hybrid.
+
+Request Design → Approve → Order → Invoice (Manual) → Deliver.
+
+## Architecture
+Single-page long-scroll for the home route, plus two dedicated form pages:
+
+- `/request-design`
+- `/order`
+
+---
+
+# 2. Brand Identity & Visuals
+
+## Primary Color
+`--gold: #F5C400`
+
+(from crown logo)
+
+## Backgrounds
+- Deep near-black (`#111111`)
+- Secondary charcoal (`#1A1A1A`)
+
+## Typography
+
+### Headings
+**Barlow Condensed** (700/800, Italic)
+
+For that aggressive, athletic feel.
+
+### Body
+**DM Sans** (400/500)
+
+For high legibility.
+
+## Texture
+A subtle 4% opacity grain overlay to match the brushstroke aesthetic of the logo background.
+
+---
+
+# 3. Core Component Map
+
+| Section | Purpose | Visual Notes |
+|---|---|---|
+| Hero | Conversion | High-contrast jersey close-up with "Request Design" CTA. |
+| How It Works | Trust | 5-step process: Design → Approve → Order → Tech Sheet → Delivery. |
+| Gallery | Proof | Masonry grid featuring team shots and gear. |
+| Extended Range | Upsell | Simple grid for Bags, Polos, and Hoodies. |
+| Pricing | Transparency | Clean dark table with [PLACEHOLDER] values for AUD pricing. |
+| FAQ | Friction Removal | Accordion for MOQ, turnaround times, and shipping. |
+
+---
+
+# 4. Technical Constraints (Agent Guardrails)
+
+## Stack
+- Next.js 14 (App Router)
+- Tailwind CSS
+- Framer Motion (for subtle fade-ups)
+- Resend (for form handling)
+
+## No Database
+Forms should submit via API routes to email.
+
+## No Checkout
+The "Order" page is a detailed data-collection form, not a payment gateway.
+
+## Performance
+Image optimization via `next/image` is mandatory for the high-res jersey shots.
+
+---
+
+# 5. Interaction Flow
+
+## Entry
+User lands on a dark, high-impact hero section.
+
+## Validation
+User scrolls through:
+- "Our Work" (Gallery)
+- "How It Works"
+
+## Action
+User clicks:
+- "Request a Design"
+
+## Conversion
+User fills out the design brief:
+- Colors
+- Style
+- Logo status
